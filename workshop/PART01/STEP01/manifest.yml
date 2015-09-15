@@ -1,0 +1,10 @@
+---
+applications:
+- name: healthspots
+  disk_quota: 1024M
+  host: healthspots
+  command: node locations.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 512M

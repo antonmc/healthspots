@@ -1,0 +1,73 @@
+<dom-module id="kp-marker">
+    <template>
+
+        <style>
+            .maincontainer {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                border: 0;
+                vertical-align: middle;
+            }
+            
+            .header {
+                flex-direction: row;
+                font-weight: bold;
+                height: 20px;
+                margin-left: 10px;
+                align-items: stretch;
+            }
+            
+            .type {
+                flex-direction: row;
+                height: 20px;
+                margin-left: 10px;
+                align-items: stretch;
+            }
+            
+            .sentiment {
+                flex-direction: row;
+                height: 20px;
+                margin-left: 10px;
+                align-items: stretch;
+            }
+        </style>
+
+
+        <div class="maincontainer">
+            <span class="header">{{title}}</span>
+            <span class="type"><label>Facility Type: </label><span>{{type}}</span></span>
+            <span class="sentiment"><label>Positive Sentiments: </label> <span>{{positive}}</span></span>
+            <span class="sentiment"><label>Negative Sentiments: </label> <span>{{negative}}</span></span>
+        </div>
+    </template>
+
+
+    <script>
+        Polymer({
+            is: 'kp-marker',
+            ready: function () {
+
+            },
+            properties: {
+                title: {
+                    type: String,
+                    reflectToAttribute: true
+                },
+                type: {
+                    type: String,
+                    reflectToAttribute: true
+                },
+                positive: {
+                    type: String,
+                    reflectToAttribute: true
+                },
+                negative: {
+                    type: String,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

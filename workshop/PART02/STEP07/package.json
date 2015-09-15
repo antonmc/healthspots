@@ -1,0 +1,16 @@
+{
+    "name": "healhspots",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node locations.js"
+    },
+    "dependencies": {
+        "ibmbluemix": "~1.0.0-20150720-1718",
+        "express": "~4.13.3"
+    },
+    "repository": {},
+    "engines": {
+        "node": "0.12.x"
+    }
+}

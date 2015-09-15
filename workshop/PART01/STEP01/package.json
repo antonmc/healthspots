@@ -1,0 +1,13 @@
+{
+    "name": "healthspots",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node locations.js"
+    },
+    "dependencies": {},
+    "repository": {},
+    "engines": {
+        "node": "0.12.x"
+    }
+}

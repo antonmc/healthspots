@@ -1,0 +1,51 @@
+<dom-module id="kp-map">
+
+    <template>
+
+        <style>
+            google-map {
+                display: block;
+                height: 400px;
+            }
+        </style>
+
+
+        <google-map zipcode={{zipcode}} map="{{map}}" disableDefaultUI latitude="34.1030032" longitude="-118.4104684" fit-to-markers fitToMarkers>
+            <iron-ajax auto="true" id="blogdata" url="../../facilitiesAndSentiments/" params={{computed(zipcode)}} handle-as="json" debounce-duration="500" last-response="{{response}}"></iron-ajax>
+            <template is="dom-repeat" items="[[response.facilities]]">
+                <google-map-marker map={{map}} latitude="{{item.lat}}" longitude="{{item.lng}}" title="{{item.name}}">
+                    <kp-marker title="{{item.name}}" type="{{item.type}}" positive="{{item.positive}}" negative="{{item.negative}}"></kp-marker>
+                </google-map-marker>
+            </template>
+        </google-map>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'kp-map',
+            ready: function () {
+                console.log('map ready')
+            },
+            computed: function (zipcode) {
+                var parameter = {
+                    "zipcode": zipcode
+                };
+
+                return parameter;
+            },
+            properties: {
+                zipcode: {
+                    type: String,
+                    notify: true,
+                    reflectToAttribute: true
+                },
+                mapquery: {
+                    type: String,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            }
+        });
+    </script>
+
+</dom-module>

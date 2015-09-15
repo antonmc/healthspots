@@ -1,0 +1,58 @@
+<dom-module id="kp-locations">
+    <template>
+
+        <style>
+            paper-material {
+                margin-bottom: 20px;
+                padding: 10px;
+                background: white;
+            }
+        }
+        </style>
+
+        <paper-material elevation="1">
+            <paper-input title="zipcode" auto-validate value="{{mapquery::input}}" auto-capitalize="characters" id="postalCode" char-counter pattern="^\d{5}(?:[-\s]\d{4})?$" maxlength="5" error-message="Please follow the format of a USA zipcode!" style="margin-bottom:0;"></paper-input>
+        </paper-material>
+        <paper-material elevation="1">
+            <kp-map zipcode="{{mapquery}}"></kp-map>
+        </paper-material>
+        <!-- paper-material>
+            <v-grid selection-mode="multi">
+                <table>
+                    <!-- Define the columns -->
+        <col name="index" header-text="#" width="48">
+            <col name="name" header-text="Facility Name">
+                <col name="type" header-text="Facility Type">
+                    <col name="positive" header-text="Positive">
+                        <col name="negative" header-text="Negative">
+                            </table>
+                            </v-grid>
+                            </paper-material -->
+    </template>
+
+    <script>
+        Polymer({
+            is: 'kp-locations',
+            ready: function () {
+
+            },
+            computed: function (zipcode) {
+                var parameter = {
+                    "zipcode": zipcode
+                };
+
+                return parameter;
+            },
+            properties: {
+                mapquery: {
+                    type: String,
+                    notify: true,
+                    value: "90210",
+                    reflectToAttribute: true
+                }
+            }
+
+        });
+    </script>
+
+</dom-module>
